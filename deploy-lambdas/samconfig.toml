@@ -1,0 +1,9 @@
+version = 0.1
+[default.deploy.parameters]
+stack_name = "my-sam-lambda"
+resolve_s3 = true
+s3_prefix = "my-sam-lambda"
+region = "us-west-2"
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+image_repositories = []

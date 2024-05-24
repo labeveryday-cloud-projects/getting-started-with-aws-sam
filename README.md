@@ -2,6 +2,8 @@
 
 This is a repo used to get started with AWS SAM.
 
+[Sam Command reference](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.html)
+
 Prereqs:
 
 - An [AWS account](https://repost.aws/knowledge-center/create-and-activate-aws-account), AWS Identity and Access Management [(IAM) credentials](https://docs.aws.amazon.com/streams/latest/dev/setting-up.html), and an [IAM access key pair](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html).
@@ -109,7 +111,22 @@ To understand the directory structure:
 
 This step builds and prepares your application for deployment.
 
-1. Build your app
+The `sam build` command in the AWS Serverless Application Model (SAM) CLI is used to build your serverless application and prepare it for deployment. It performs several tasks to get your application ready for deployment, including:
+
+- Code Transformation: The sam build command transforms your Lambda function code to make it compatible with the AWS Lambda execution environment. This includes handling dependencies, compiling code (if necessary), and packaging the code into a deployment artifact (e.g., a ZIP file).
+
+- Dependency Management: If your Lambda functions have external dependencies (e.g., Python packages or Node.js modules), the sam build command will install and package those dependencies along with your function code. This ensures that your Lambda functions have access to all the required dependencies when executed in the AWS Lambda environment.
+
+- Artifact Generation: After transforming and packaging your Lambda function code, the sam build command generates deployment artifacts. These artifacts typically include:
+
+  - A ZIP file containing your Lambda function code and dependencies.
+  - A modified version of your SAM template (template.yaml or template.json) with references to the generated deployment artifacts.
+
+- Local Testing: The sam build command can also be used to generate artifacts for local testing of your serverless application. This allows you to test your Lambda functions locally before deploying them to AWS.
+
+The generated deployment artifacts and modified SAM template are then used by the sam deploy command to deploy your serverless application to AWS.
+
+1. Build your app. 
 
 ```bash
 sam build

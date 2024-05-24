@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: A simple Lambda function
+
+Resources:
+  MyLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./my_lambda/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+  
+  MySecondLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./my_second_lambda/
+      Handler: app.lambda_handler
+      Runtime: python3.9
